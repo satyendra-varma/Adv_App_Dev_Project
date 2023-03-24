@@ -1,0 +1,43 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace AspNetCoreTodo.Models
+{
+    public class TodoItem : IComparable<TodoItem>
+    {
+        public Guid Id { get; set; }
+
+        public bool IsDone { get; set; }
+
+        [Required]
+        public string Title { get; set; }
+
+        public DateTimeOffset? StartDate { get; set; }
+        
+        public int NumberofDays { get; set; }
+        
+        public int Priority { get; set; }
+
+        public DateTimeOffset? DueAt { get; set; }
+
+
+        public int CompareTo(TodoItem nxtitem)    
+        {    
+            if (nxtitem == null) return 1;    
+            TodoItem nextitem = nxtitem as TodoItem;    
+            if(nextitem != null)    
+            {
+                if (this.Priority > nextitem.Priority)
+                    return 1;
+                else if (this.Priority == nextitem.Priority)
+                    return 0;
+                else
+                    return -1;  
+            }    
+            else    
+            {    
+                throw new ArgumentException("Provided incorrect items");    
+            }    
+        }
+    }
+}
