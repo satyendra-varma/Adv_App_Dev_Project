@@ -13,9 +13,9 @@ namespace AspNetCoreTodo.Services
             {
                 Title = "Learn ASP.NET Core",
                 StartDate = DateTime.Now,
-                NumberofDays = 4,
+                NumberofDays = 20,
                 Priority = 5,
-                DueAt = DateTimeOffset.Now.AddDays(4)
+                DueAt = DateTimeOffset.Now.AddDays(31)
             };
 
             var item2 = new TodoItem
@@ -24,14 +24,14 @@ namespace AspNetCoreTodo.Services
                 StartDate = DateTime.Now,
                 NumberofDays = 4,
                 Priority = 4,
-                DueAt = DateTimeOffset.Now.AddDays(6)
+                DueAt = DateTimeOffset.Now.AddDays(5)
             };
 
             var item3 = new TodoItem
             {
                 Title = "Learn ASP.NET",
                 StartDate = DateTime.Now,
-                NumberofDays = 2,
+                NumberofDays = 3,
                 Priority = 3,
                 DueAt = DateTimeOffset.Now.AddDays(4)
             };
@@ -40,16 +40,16 @@ namespace AspNetCoreTodo.Services
             {
                 Title = "Build apps",
                 StartDate = DateTime.Now,
-                NumberofDays = 4,
+                NumberofDays = 5,
                 Priority = 2,
-                DueAt = DateTimeOffset.Now.AddDays(4)
+                DueAt = DateTimeOffset.Now.AddDays(6)
             };
 
             var item5 = new TodoItem
             {
                 Title = "Build apps",
                 StartDate = DateTime.Now,
-                NumberofDays = 3,
+                NumberofDays = 4,
                 Priority = 1,
                 DueAt = DateTimeOffset.Now.AddDays(4)
             };

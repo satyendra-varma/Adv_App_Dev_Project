@@ -10,21 +10,21 @@ namespace AspNetCoreTodo.Models
         public bool IsDone { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string Title { get; set; } = " "; // given default value to get rid of the non-nullable warning
 
         public DateTimeOffset? StartDate { get; set; }
-        
+   
         public int NumberofDays { get; set; }
-        
+
         public int Priority { get; set; }
 
-        public DateTimeOffset? DueAt { get; set; }
+        [Required]
+        public DateTimeOffset DueAt { get; set; }
 
-
-        public int CompareTo(TodoItem nxtitem)    
+        public int CompareTo(TodoItem? other)    
         {    
-            if (nxtitem == null) return 1;    
-            TodoItem nextitem = nxtitem as TodoItem;    
+            if (other == null) return 1;    
+            TodoItem nextitem = other as TodoItem;    
             if(nextitem != null)    
             {
                 if (this.Priority > nextitem.Priority)

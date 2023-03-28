@@ -3017,11 +3017,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "S:\\ADV_apl_dvp\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
+      "projectUniqueName": "S:\\ADV_apl_dvp\\Adv_App_Dev_Project\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
       "projectName": "AspNetCoreTodo",
-      "projectPath": "S:\\ADV_apl_dvp\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
+      "projectPath": "S:\\ADV_apl_dvp\\Adv_App_Dev_Project\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
       "packagesPath": "C:\\Users\\satye\\.nuget\\packages\\",
-      "outputPath": "S:\\ADV_apl_dvp\\AspNetCoreTodo\\obj\\",
+      "outputPath": "S:\\ADV_apl_dvp\\Adv_App_Dev_Project\\AspNetCoreTodo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\satye\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Controllers",
-    "\\Models",
-    "\\Services",
     "\\Views",
+    "\\Views\\Home",
+    "\\Views\\Shared",
     "\\Views\\Todo",
     "\\wwwroot",
     "\\wwwroot\\css",
@@ -12,6 +11,6 @@
     "\\wwwroot\\lib\\bootstrap",
     "\\wwwroot\\lib\\bootstrap\\dist"
   ],
-  "SelectedNode": "\\Models\\TodoItem.cs",
+  "SelectedNode": "\\Services\\FakeTodoItemService.cs",
   "PreviewInSolutionExplorer": false
 }
