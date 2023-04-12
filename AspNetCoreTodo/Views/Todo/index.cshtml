@@ -1,5 +1,6 @@
 @model TodoViewModel
 @using Humanizer
+@using System
 
 @{
     ViewData["Title"] = "Manage your todo list";
@@ -19,28 +20,76 @@
               <td>Due</td>
           </tr>
       </thead>
-    @{
-      Array.Sort(Model.Items);
-    }
-    @foreach (var item in Model.Items)
-      {
-    <tr>
-        <td>
-            <form asp-action="MarkDone" method="POST">
-                <input type="checkbox" class="done-checkbox">
-                <input type="hidden" name="id" value="@item.Id">
-            </form>
-        </td>
-        <td>@item.Title</td>
-        <td>@item.StartDate.Humanize()</td>
-        <td>@item.NumberofDays</td>
-        <td>@item.Priority</td>
-        <td>@item.DueAt.Humanize()</td>
-    </tr>
-      }
+        @{
+            Array.Sort(Model.Items);
+        }
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    <form asp-action="MarkDone" method="POST">
+                        <input type="checkbox" class="done-checkbox">
+                        <input type="hidden" name="id" value="@item.Id">
+                    </form>
+                </td>
+                <td id="_form">
+                    <form asp-action="UpdateTitle" method="POST" id="_form">
+                        <input type="text" name="title" value="@item.Title" onchange="this.form.submit()">
+                        <input type="hidden" name="id" value="@item.Id" >
+                    </form>
+                </td>
+                <!--<td id="_list">item.Title</td> -->
+
+                <td id="_form">
+                    <form asp-action="UpdateStartDate" method="POST">
+                                <input type="date" name="startdate" value="@DateOnly.FromDateTime(item.StartDate.DateTime.Date)" onchange="this.form.submit()">
+                        <input type="hidden" name="id" value="@item.Id">
+                    </form>
+                </td>
+                <!-- <td id="_list">item.StartDate.Humanize()</td> -->
+
+                <td id="_form">
+                        <form asp-action="UpdateNumberOfDays" method="POST">
+                        <input type="number" name="numberofdays" value="@item.NumberofDays" onchange="this.form.submit()">
+                        <input type="hidden" name="id" value="@item.Id">
+                    </form>
+                </td>
+                <!-- <td id="_list">item.NumberofDays</td> -->
+                <td id="_form">
+                    <form asp-action="UpdatePriority" method="POST">
+                        <select class="form-control" name="priority" value="@item.Priority" onchange="this.form.submit()">
+                            <option value="1" selected=@(item.Priority == 1)>1</option>
+                            <option value="2" selected=@(item.Priority == 2)>2</option>
+                            <option value="3" selected=@(item.Priority == 3)>3</option>
+                            <option value="4" selected=@(item.Priority == 4)>4</option>
+                            <option value="5" selected=@(item.Priority == 5)>5</option>
+                        </select>
+                        <input type="hidden" name="id" value="@item.Id">
+                    </form>
+                </td>
+                <!-- <td id="_list">item.Priority</td> -->
+
+                <td id="_form">
+                    <form asp-action="UpdateDueDate" method="POST">
+                                <input type="date" name="duedate" value="@DateOnly.FromDateTime(item.DueAt.DateTime.Date)" onchange="this.form.submit()">
+                        <input type="hidden" name="id" value="@item.Id">
+                    </form>
+                </td>
+                <!--<td id="_list">item.DueAt.Humanize()</td> -->
+                <!--   <td> <btn class="btn btn-primary" onclick="Edit_Item">Edit</btn>     </td>
+                
+                -->
+            </tr>
+        }
 </table>
 
   <div class="panel-footer add-item-form">
       @await Html.PartialAsync("AddItemPartial", new TodoItem())
   </div>
 </div>
+
+<script>
+    function Edit_Item(){
+
+    }
+</script>

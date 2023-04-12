@@ -12,5 +12,15 @@ namespace AspNetCoreTodo.Services
         Task<bool> AddItemAsync(TodoItem newItem);
 
         Task<bool> MarkDoneAsync(Guid id);
+
+        Task<bool> UpdateTitleAsync(Guid id, string title);
+
+        Task<bool> UpdateStartDateAsync(Guid id, DateTimeOffset startdate);
+
+        Task<bool> UpdateNumberOfDaysAsync(Guid id, int numberofdays);
+
+        Task<bool> UpdatePriorityAsync(Guid id, int priority);
+
+        Task<bool> UpdateDueDateAsync(Guid id, DateTimeOffset duedate);
     }
 }

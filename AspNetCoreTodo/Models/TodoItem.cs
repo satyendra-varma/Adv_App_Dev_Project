@@ -12,7 +12,7 @@ namespace AspNetCoreTodo.Models
         [Required]
         public string Title { get; set; } = " "; // given default value to get rid of the non-nullable warning
 
-        public DateTimeOffset? StartDate { get; set; }
+        public DateTimeOffset StartDate { get; set; }
    
         public int NumberofDays { get; set; }
 

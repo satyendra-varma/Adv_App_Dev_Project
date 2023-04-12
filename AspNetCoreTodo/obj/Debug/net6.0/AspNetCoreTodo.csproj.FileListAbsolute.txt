@@ -337,3 +337,8 @@ S:\ADV_apl_dvp\Adv_App_Dev_Project\AspNetCoreTodo\obj\Debug\net6.0\refint\AspNet
 S:\ADV_apl_dvp\Adv_App_Dev_Project\AspNetCoreTodo\obj\Debug\net6.0\AspNetCoreTodo.pdb
 S:\ADV_apl_dvp\Adv_App_Dev_Project\AspNetCoreTodo\obj\Debug\net6.0\AspNetCoreTodo.genruntimeconfig.cache
 S:\ADV_apl_dvp\Adv_App_Dev_Project\AspNetCoreTodo\obj\Debug\net6.0\ref\AspNetCoreTodo.dll
+S:\ADV_apl_dvp\Adv_App_Dev_Project\AspNetCoreTodo\obj\Debug\net6.0\staticwebassets\msbuild.AspNetCoreTodo.Microsoft.AspNetCore.StaticWebAssets.props
+S:\ADV_apl_dvp\Adv_App_Dev_Project\AspNetCoreTodo\obj\Debug\net6.0\staticwebassets\msbuild.build.AspNetCoreTodo.props
+S:\ADV_apl_dvp\Adv_App_Dev_Project\AspNetCoreTodo\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.AspNetCoreTodo.props
+S:\ADV_apl_dvp\Adv_App_Dev_Project\AspNetCoreTodo\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.AspNetCoreTodo.props
+S:\ADV_apl_dvp\Adv_App_Dev_Project\AspNetCoreTodo\obj\Debug\net6.0\staticwebassets.pack.json

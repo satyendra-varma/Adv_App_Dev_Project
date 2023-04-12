@@ -29,7 +29,6 @@ namespace AspNetCoreTodo.Services
         {
             newItem.Id = Guid.NewGuid();
             newItem.IsDone = false;
-            newItem.DueAt = DateTimeOffset.Now.AddDays(3);
 
             _context.Items.Add(newItem);
 
@@ -51,5 +50,79 @@ namespace AspNetCoreTodo.Services
             return saveResult == 1; // One entity should have been updated
         }
 
+        public async Task<bool> UpdateTitleAsync(Guid id, string title)
+        {
+            var item = await _context.Items
+                .Where(x => x.Id == id)
+                .SingleOrDefaultAsync();
+
+            if (item == null) return false;
+
+            item.Title = title;
+
+            var saveResult = await _context.SaveChangesAsync();
+            return saveResult == 1;
+        }
+
+        public async Task<bool> UpdateStartDateAsync(Guid id, DateTimeOffset startdate)
+        {
+            var item = await _context.Items
+                .Where(x => x.Id == id)
+                .SingleOrDefaultAsync();
+
+            if (item == null) return false;
+
+            item.StartDate = startdate;
+
+            var saveResult = await _context.SaveChangesAsync();
+            return saveResult == 1;
+        }
+
+        public async Task<bool> UpdateNumberOfDaysAsync(Guid id, int numberofdays)
+        {
+            var item = await _context.Items
+                .Where(x => x.Id == id)
+                .SingleOrDefaultAsync();
+
+            if (item == null) return false;
+
+            item.NumberofDays = numberofdays;
+
+            var saveResult = await _context.SaveChangesAsync();
+            return saveResult == 1;
+        }
+
+        public async Task<bool> UpdatePriorityAsync(Guid id, int priority)
+        {
+            var item = await _context.Items
+                .Where(x => x.Id == id)
+                .SingleOrDefaultAsync();
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            item.Priority = priority;
+
+
+            var saveResult = await _context.SaveChangesAsync();
+            return saveResult == 1;
+        }
+
+        public async Task<bool> UpdateDueDateAsync(Guid id, DateTimeOffset duedate)
+        {
+            var item = await _context.Items
+                .Where(x => x.Id == id)
+                .SingleOrDefaultAsync();
+
+            if (item == null) return false;
+
+            item.DueAt = duedate;
+
+            var saveResult = await _context.SaveChangesAsync();
+            return saveResult == 1;
+        }
     }
+
 }

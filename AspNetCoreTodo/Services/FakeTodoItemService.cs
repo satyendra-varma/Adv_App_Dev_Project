@@ -66,5 +66,30 @@ namespace AspNetCoreTodo.Services
         {
             throw new NotImplementedException();
         }
+
+        public Task<bool> UpdateTitleAsync(Guid id, string title)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateStartDateAsync(Guid id, DateTimeOffset startdate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateNumberOfDaysAsync(Guid id, int numberofdays)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdatePriorityAsync(Guid id, int priority)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateDueDateAsync(Guid id, DateTimeOffset duedate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
