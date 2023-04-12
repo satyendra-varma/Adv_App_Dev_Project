@@ -11,12 +11,12 @@
             <label class="col-1" asp-for="DueAt">Due date:</label>
             <div class="col-3">
                 <input class="form-control" type="date" value=@DateTime.Now.Date
-                       min=@DateTime.Now.Date max="2024-12-31" asp-for="DueAt">
+                       min=@DateOnly.FromDateTime(DateTime.Now) max="2024-12-31" asp-for="DueAt">
             </div>
             <label class="col-1" asp-for="StartDate">Start Date:</label>
             <div class="col-3">
                 <input class="form-control" type="date" asp-for="StartDate" value=@DateTime.Now.Date
-                       min=@DateTime.Now.Date max="2024-12-31">
+                       min=@DateOnly.FromDateTime(DateTime.Now) max="2024-12-31">
             </div>
         </div><br />
         <div class="row text-center">
@@ -42,7 +42,7 @@
             
             
             <div class="col d-flex justify-content-center">
-                <button class="btn btn-primary" type="submit">Add</button>
+                <button class="btn btn-dark" type="submit">Add</button>
             </div>
         </div>
     </div>

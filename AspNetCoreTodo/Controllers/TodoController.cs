@@ -66,7 +66,12 @@ namespace AspNetCoreTodo.Controllers
                 TempData["CustomError"] = "Number of days is less than difference between Due Date and Start Date.";
                 return RedirectToAction("Index");
             }
-            
+            else if (newItem.StartDate >= DateTimeOffset.Now)
+            {
+                TempData["CustomError"] = "Start Date must be after today's date";
+                return RedirectToAction("Index");
+            }
+
             if (!ModelState.IsValid)
             {
                 return RedirectToAction("Index");
