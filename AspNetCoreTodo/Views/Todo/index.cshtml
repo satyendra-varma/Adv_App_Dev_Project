@@ -34,7 +34,7 @@
                 </td>
                 <td id="_form">
                     <form asp-action="UpdateTitle" method="POST" id="_form">
-                        <input type="text" name="title" value="@item.Title" onchange="this.form.submit()">
+                        <input class="form-control" type="text" name="title" value="@item.Title" onchange="this.form.submit()">
                         <input type="hidden" name="id" value="@item.Id" >
                     </form>
                 </td>
@@ -42,7 +42,7 @@
 
                 <td id="_form">
                     <form asp-action="UpdateStartDate" method="POST">
-                                <input type="date" name="startdate" value="@DateOnly.FromDateTime(item.StartDate.DateTime.Date)" onchange="this.form.submit()">
+                        <input type="date" class="form-control" name="startdate" value="@DateOnly.FromDateTime(item.StartDate.DateTime.Date)" onchange="this.form.submit()">
                         <input type="hidden" name="id" value="@item.Id">
                     </form>
                 </td>
@@ -50,7 +50,7 @@
 
                 <td id="_form">
                         <form asp-action="UpdateNumberOfDays" method="POST">
-                        <input type="number" name="numberofdays" value="@item.NumberofDays" onchange="this.form.submit()">
+                        <input type="number" class="form-control" name="numberofdays" value="@item.NumberofDays" onchange="this.form.submit()">
                         <input type="hidden" name="id" value="@item.Id">
                     </form>
                 </td>
@@ -71,7 +71,7 @@
 
                 <td id="_form">
                     <form asp-action="UpdateDueDate" method="POST">
-                                <input type="date" name="duedate" value="@DateOnly.FromDateTime(item.DueAt.DateTime.Date)" onchange="this.form.submit()">
+                        <input type="date" class="form-control" name="duedate" value="@DateOnly.FromDateTime(item.DueAt.DateTime.Date)" onchange="this.form.submit()">
                         <input type="hidden" name="id" value="@item.Id">
                     </form>
                 </td>

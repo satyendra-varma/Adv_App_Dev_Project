@@ -7,7 +7,7 @@ namespace AspNetCoreTodo.Services
 {
     public interface ITodoItemService
     {
-        Task<TodoItem[]> GetIncompleteItemsAsync();
+        Task<TodoItem[]> GetIncompleteItemsAsync(string user_id);
 
         Task<bool> AddItemAsync(TodoItem newItem);
 

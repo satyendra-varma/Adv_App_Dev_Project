@@ -35,10 +35,14 @@ namespace AspNetCoreTodo.Data.Migrations
                     b.Property<int>("Priority")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTimeOffset?>("StartDate")
+                    b.Property<DateTimeOffset>("StartDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

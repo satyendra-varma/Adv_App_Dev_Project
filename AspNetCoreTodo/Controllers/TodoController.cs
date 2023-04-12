@@ -7,27 +7,36 @@ using Microsoft.AspNetCore.Mvc;
 using AspNetCoreTodo.Services;
 using AspNetCoreTodo.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace AspNetCoreTodo.Controllers
 {
     public class TodoController : Controller
     {
         private readonly ITodoItemService _todoItemService;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public TodoController(ITodoItemService todoItemService)
+        public TodoController(ITodoItemService todoItemService, UserManager<IdentityUser> usermanager)
         {
             _todoItemService = todoItemService;
+            _userManager = usermanager;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
+            //var user = _userManager.GetUserAsync(User);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (TempData["CustomError"] != null)
             {
                 ModelState.AddModelError("Validation_Error", TempData["CustomError"].ToString());
                 TempData["CustomError"] = null;
             }
             // Get to-do items from database
-            var items = await _todoItemService.GetIncompleteItemsAsync();
+            var items = await _todoItemService.GetIncompleteItemsAsync(userId);
 
             // Put items into a model
             var model = new TodoViewModel()
@@ -39,6 +48,7 @@ namespace AspNetCoreTodo.Controllers
             return View(model);
         }
 
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddItem(TodoItem newItem)
         {
@@ -61,7 +71,8 @@ namespace AspNetCoreTodo.Controllers
             {
                 return RedirectToAction("Index");
             }
-
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            newItem.UserId = userId;
             var successful = await _todoItemService.AddItemAsync(newItem);
             if (!successful)
             {

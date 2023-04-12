@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreTodo.Data;
 using AspNetCoreTodo.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCoreTodo.Services
@@ -17,10 +18,10 @@ namespace AspNetCoreTodo.Services
             _context = context;
         }
 
-        public async Task<TodoItem[]> GetIncompleteItemsAsync()
+        public async Task<TodoItem[]> GetIncompleteItemsAsync(string user_id)
         {
             var items = await _context.Items
-                .Where(x => x.IsDone == false)
+                .Where(x => x.IsDone == false && x.UserId == user_id)
                 .ToArrayAsync();
             return items;
         }
@@ -29,7 +30,7 @@ namespace AspNetCoreTodo.Services
         {
             newItem.Id = Guid.NewGuid();
             newItem.IsDone = false;
-
+           
             _context.Items.Add(newItem);
 
             var saveResult = await _context.SaveChangesAsync();
