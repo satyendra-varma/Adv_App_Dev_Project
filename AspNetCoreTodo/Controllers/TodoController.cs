@@ -52,6 +52,14 @@ namespace AspNetCoreTodo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddItem(TodoItem newItem)
         {
+
+            if (!ModelState.IsValid)
+            {
+
+            }
+            DateTimeOffset dateTimeOffset = DateTimeOffset.Now.Date; 
+            dateTimeOffset = new DateTimeOffset(dateTimeOffset.DateTime, TimeSpan.Zero);
+
             if (newItem.StartDate > newItem.DueAt)
             {
                 //ModelState.AddModelError("Date_gap_error", "Due Date must be greater than Start Date.");
@@ -66,8 +74,10 @@ namespace AspNetCoreTodo.Controllers
                 TempData["CustomError"] = "Number of days is less than difference between Due Date and Start Date.";
                 return RedirectToAction("Index");
             }
-            else if (newItem.StartDate >= DateTimeOffset.Now)
+            
+            else if (newItem.StartDate < dateTimeOffset)
             {
+
                 TempData["CustomError"] = "Start Date must be after today's date";
                 return RedirectToAction("Index");
             }
@@ -76,6 +86,7 @@ namespace AspNetCoreTodo.Controllers
             {
                 return RedirectToAction("Index");
             }
+            
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             newItem.UserId = userId;
             var successful = await _todoItemService.AddItemAsync(newItem);
